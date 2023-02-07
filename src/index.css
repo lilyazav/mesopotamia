@@ -1,0 +1,44 @@
+table, th, td {
+    border: 1px solid;
+    height: 50px;
+    width: 150px;
+  }
+
+.null {
+  background-color: black;
+}
+
+.player1 {
+  width: 150px;
+  display: table-cell;
+  background-color: red;
+}
+
+.player2 {
+  width: 150px;
+  display: table-cell;
+  background-color: blue;
+}
+
+.dice {
+  background-color: green;
+  width: 450px;
+}
+
+.playerTurn {
+  background-color: peru;
+  width: 450px;
+}
+
+.error {
+  background-color: pink;
+  width: 450px;
+}
+
+.red {
+  background-color: red;
+}
+
+#board {
+  display: table-cell
+}

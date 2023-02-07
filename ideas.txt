@@ -1,0 +1,10 @@
+2048 copy
+chess
+sudoku
+
+Ancient Games:
+- Royal Game of Ur
+https://royalur.net/game/#a
+
+- Senet
+
