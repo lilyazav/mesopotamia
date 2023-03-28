@@ -1,7 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-
+import {ReactComponent as Piece1} from './svg//piece1.svg'
+import {ReactComponent as Piece2} from './svg/piece2.svg'
+import {ReactComponent as AncientJar} from './svg/ancient-jar.svg'
+import {ReactComponent as DiceYes} from './svg/dice_yes.svg'
+import {ReactComponent as DiceNo} from './svg/dice_no.svg'
 
 class RoyalGameOfUr extends React.Component {
 // functionality to add: 
@@ -134,8 +138,8 @@ class RoyalGameOfUr extends React.Component {
     
         return ( <td id={i} onClick={ isPotentialMove ? ()=> this.move() : () => this.checkMoves(i)} 
         className = {red === i ? "red" : null}>
-            {player1.includes(i)? "1" : null}
-            {player2.includes(i)? "2" : null}
+            {player1.includes(i)? <Piece1 className = "clickable"/> : null}
+            {player2.includes(i)?  <Piece2 className = "clickable"/> : null}
 
         </td>)
     }
@@ -149,9 +153,9 @@ class RoyalGameOfUr extends React.Component {
         for(let i = 0;  i < this.state[player].length ; i++){
             let value = this.state[player][i];
             if ( value === 6) {
-                homeArray.push("1")
+                homeArray.push(<Piece1 className="clickable" />)
             } else if (value === 8) {
-                homeArray.push("2")
+                homeArray.push(<Piece2 className="clickable" />)
             } else if (value === 101) {
                 homeArray.push("X")
             } 
@@ -196,25 +200,61 @@ class RoyalGameOfUr extends React.Component {
 
     }
 
+    diceDisplay(){
+        const roll = this.state.roll;
+        console.log(roll)
+        if(roll){
+            let diceArray = []
+            for(let i = roll; i > 0; i--){
+                diceArray.push(<DiceYes />)
+            }
+            for(let i = 4 - roll; i > 0; i--){
+                diceArray.push(<DiceNo />)
+            }
+            return diceArray;
+        } else {
+            return(
+            <div className="opaque">
+                { Math.round(Math.random()) === 1 ? <DiceYes /> : <DiceNo />}
+                { Math.round(Math.random()) === 1 ? <DiceYes /> : <DiceNo />}
+                { Math.round(Math.random()) === 1 ? <DiceYes /> : <DiceNo />}
+                { Math.round(Math.random()) === 1 ? <DiceYes /> : <DiceNo />}
+            </div>
+            )
+        }
+    }
+
     render() {
         return (
-            <>
-            <div className="error">{ this.state.error ? this.state.error : null }</div>
-            <div className="playerTurn">Turn: Player {this.state.turn}</div>
-            <div className="dice" onClick={() => this.diceRoll()}>Dice = {this.state.roll}</div>
-            <div className="player1" onClick={() => this.checkMoves(6)}>
-                {this.renderHome("player1")}
+            <div className = "game">
+                <div className="accessory">
+                    <div className="playerTurn">Player {this.state.turn}, it's your turn.  
+                        {this.state.roll ? " Please make a move." : " Please roll the dice" }
+                    </div>
+                    <div className="dice" onClick={() => this.diceRoll()}>
+                        {this.diceDisplay()}
+                    </div>
+
+                    {/* <div className="error">{ this.state.error ? this.state.error : null }</div> */}
+                </div>
+                    
+
+
+                
+                {/* <div className="player1" onClick={() => this.checkMoves(6)}>
+                    {this.renderHome("player1")}
+                </div>
+                <table id="board">
+                    <thead />
+                    <tbody>
+                    {this.renderTable()}
+                    </tbody>
+                </table>
+                <div className="player2" onClick={() => this.checkMoves(8)}>
+                    {this.renderHome("player2")}
+                </div> */}
+           
             </div>
-            <table id="board">
-                <thead />
-                <tbody>
-                {this.renderTable()}
-                </tbody>
-            </table>
-            <div className="player2" onClick={() => this.checkMoves(8)}>
-                {this.renderHome("player2")}
-            </div>
-            </>
         )
     }
 }
@@ -228,21 +268,25 @@ class Game extends React.Component {
     }
 
     changeGame(e) {
-        console.log(e.target.value)
         this.setState({game: e.target.value})
     }
 
     render(){
-        console.log(this.state.game)
         return (
-            <div>
-                <label htmlFor="games">Choose a Game: </label>
-                <select name="games" id = "games" onChange= {(e) => this.changeGame(e)} value={this.state.game}>
-                    <option value="Royal Game of Ur">Royal Game of Ur</option>
-                    <option value="Senet">Senet</option>
-                    <option value="Chess">Chess</option>
-                </select>
-                {this.state.game === "Royal Game of Ur" ? <RoyalGameOfUr /> : <div> We don't have {this.state.game} yet!</div>}  
+            <div className = "wrapper">
+                <div className = "header">
+                    <AncientJar /> Ancient Games 
+                </div>
+                <div className = "selectGame">
+                    <label htmlFor="games">Choose a Game:</label>
+                    <select name="games" id = "games" onChange= {(e) => this.changeGame(e)} value={this.state.game}>
+                        <option value="Royal Game of Ur">Royal Game of Ur</option>
+                        <option value="Senet">Senet</option>
+                        <option value="Chess">Chess</option>
+                    </select>
+                </div>
+                
+                {this.state.game === "Royal Game of Ur" ? <RoyalGameOfUr /> : <div className="sorry"> We don't have {this.state.game} yet!</div>}  
             </div> 
         )
     }

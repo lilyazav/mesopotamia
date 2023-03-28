@@ -1,8 +1,72 @@
+/* Palette
+light green C9CBA3
+light yellow FFE1A8
+terracotta E26D5C
+purple 723D46
+brown-purple 472D30
+*/
+
+body {
+  margin: 0px;
+  background-color: #FFE1A8;
+  font-family: fantasy;
+}
+
+.header {
+  background-color: #472D30;
+  color: white;
+  height: 50px;
+  font-family: cursive;
+  font-size: 30px;
+  padding: 15px 0 5px 0;
+  text-align: center;
+}
+
+.selectGame {
+  display: flex;
+  background-color: #723D46;
+  color: white;
+  padding: 20px;
+  font-size: 20px;
+  
+}
+
+.selectGame > label {
+  margin: 0 20px;
+}
+
+.sorry {
+  font-size: 30px;
+  padding: 50px;
+  text-align: center;
+}
+
+.game {
+  padding: 30px;
+}
+
+.playerTurn {
+  text-align: center;
+}
+
+.dice {
+  text-align: center;
+  padding: 20px;
+}
+
+.opaque {
+  opacity: 20%;
+  cursor: pointer;
+}
+
 table, th, td {
     border: 1px solid;
     height: 50px;
-    width: 150px;
   }
+
+td {
+  width: 50px;
+}
 
 .null {
   background-color: black;
@@ -11,24 +75,17 @@ table, th, td {
 .player1 {
   width: 150px;
   display: table-cell;
-  background-color: red;
 }
 
 .player2 {
   width: 150px;
   display: table-cell;
-  background-color: blue;
 }
 
-.dice {
-  background-color: green;
-  width: 450px;
+.clickable {
+  cursor: pointer;
 }
 
-.playerTurn {
-  background-color: peru;
-  width: 450px;
-}
 
 .error {
   background-color: pink;
