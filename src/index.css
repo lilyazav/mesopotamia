@@ -22,6 +22,16 @@ body {
   text-align: center;
 }
 
+.tip {
+  width: 130px;
+  height: 105px;
+  position: absolute;
+  top: 10px;
+  left: 80%;
+  background: #FFFFFF;
+  padding: 10px;
+}
+
 .selectGame {
   display: flex;
   background-color: #723D46;
@@ -45,6 +55,13 @@ body {
   padding: 30px;
 }
 
+.error {
+  background-color: pink;
+  text-align: center;
+  padding: 10px;
+  margin: 10px;
+}
+
 .playerTurn {
   text-align: center;
 }
@@ -56,46 +73,49 @@ body {
 
 .opaque {
   opacity: 20%;
-  cursor: pointer;
-}
-
-table, th, td {
-    border: 1px solid;
-    height: 50px;
-  }
-
-td {
-  width: 50px;
-}
-
-.null {
-  background-color: black;
 }
 
 .player1 {
-  width: 150px;
-  display: table-cell;
 }
 
 .player2 {
-  width: 150px;
-  display: table-cell;
+}
+
+.board {
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+table, th, td {
+  border: 1px solid;
+  height: 50px;
+}
+
+td {
+width: 50px;
 }
 
 .clickable {
   cursor: pointer;
 }
 
-
-.error {
-  background-color: pink;
-  width: 450px;
+.null {
+  background-color: black;
 }
 
 .red {
   background-color: red;
 }
 
-#board {
-  display: table-cell
+.container {
+  display: flex;   
+  justify-content: center; 
+}
+
+.rosette {
+  background-image: url('/src/svg/rosette.svg');
 }
