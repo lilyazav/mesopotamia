@@ -22,17 +22,7 @@ body {
   text-align: center;
 }
 
-.tip {
-  width: 130px;
-  height: 105px;
-  position: absolute;
-  top: 10px;
-  left: 80%;
-  background: #FFFFFF;
-  padding: 10px;
-}
-
-.selectGame {
+.selectScreen {
   display: flex;
   background-color: #723D46;
   color: white;
@@ -41,7 +31,7 @@ body {
   
 }
 
-.selectGame > label {
+.selectScreen > label {
   margin: 0 20px;
 }
 
@@ -51,18 +41,36 @@ body {
   text-align: center;
 }
 
-.game {
+.intro {
+  margin: 40px;
+  border: solid 10px rgba(255, 255, 255, 0.2);
+  padding: 5px;
+}
+
+.screen {
   padding: 30px;
+}
+
+.holder {
+  height: 140px;
+}
+
+.note {
+  padding: 10px;
+  margin: 10px;
+  text-align: center; 
 }
 
 .error {
   background-color: pink;
-  text-align: center;
-  padding: 10px;
-  margin: 10px;
+}
+
+.tip {
+  background-color: #f9eeda;
 }
 
 .playerTurn {
+  margin-top: 10px;
   text-align: center;
 }
 
@@ -76,9 +84,11 @@ body {
 }
 
 .player1 {
+  width: 30%;
 }
 
 .player2 {
+  width: 30%;
 }
 
 .board {
@@ -88,6 +98,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-around;
+  margin-bottom: 20px;
 }
 
 table, th, td {
@@ -118,4 +129,8 @@ width: 50px;
 
 .rosette {
   background-image: url('/src/svg/rosette.svg');
+}
+
+.gameButton {
+  margin-bottom: 20px;
 }
